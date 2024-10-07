@@ -55,9 +55,9 @@ module FIFO(
             rd_ptr <= 0;
         end else begin
             if (wr_en && !buf_full)
-                wr_ptr <= wr_ptr + 1;
+                wr_ptr <= (wr_ptr + 1)%64;
             if (rd_en && !buf_empty)
-                rd_ptr <= rd_ptr + 1;
+                rd_ptr <= (rd_ptr + 1)%64;
         end
     end
 
